@@ -3,9 +3,9 @@ import logging
 from fastapi import FastAPI
 import uvicorn
 
-from camera import Camera
-from constants import API_PORT
-from server import Server
+from .core.camera import Camera
+from .constants import API_PORT
+from .api.server import Server
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
