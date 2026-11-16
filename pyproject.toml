@@ -1,6 +1,7 @@
 [project]
 name = "local-eye-camera"
 version = "0.1.0"
+readme = "README.md"
 description = "The software that will be running on the pi"
 requires-python = ">=3.14"
 dependencies = [
