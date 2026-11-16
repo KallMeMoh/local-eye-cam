@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from src.core.camera import Camera
+from project.core.camera import Camera
 
 def Server(camera: Camera) -> FastAPI:
   app = FastAPI()

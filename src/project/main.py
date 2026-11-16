@@ -1,9 +1,9 @@
 import logging
 import uvicorn
 
-from .core.camera import Camera
-from .constants import API_PORT
-from .api.server import Server
+from project.core.camera import Camera
+from project.constants import API_PORT
+from project.api.server import Server
 
 def main():
   logging.basicConfig(
