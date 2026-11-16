@@ -1,8 +1,11 @@
 from fastapi import FastAPI
-from starlette.types import Lifespan
 
-def Server(lifespan: Lifespan[FastAPI] | None) -> FastAPI:
-  app = FastAPI(lifespan=lifespan)
+from src.core.camera import Camera
+
+def Server(camera: Camera) -> FastAPI:
+  app = FastAPI()
+
+  app.state.camera = camera
 
   @app.get("/ping")
   def ping():
