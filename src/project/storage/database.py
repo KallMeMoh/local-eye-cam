@@ -4,7 +4,7 @@ from sqlalchemy import create_engine, event
 from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
 from sqlalchemy.pool import ConnectionPoolEntry
 
-from src.constants import DB_FILE_PATH
+from project.constants import DB_FILE_PATH
 
 class Base(DeclarativeBase):
   pass
