@@ -1,24 +1,17 @@
 from contextlib import asynccontextmanager
-from asyncio import get_running_loop
 import logging
 from fastapi import FastAPI
 import uvicorn
 
 from camera import Camera
-from constants import API_PORT, UDP_PORT
+from constants import API_PORT
 from server import Server
-from udp import UdpDiscoveryServer
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
   app.state.camera = Camera(0)
   transport = None
   try:
-    loop = get_running_loop()
-    transport, _ = await loop.create_datagram_endpoint(
-      protocol_factory=UdpDiscoveryServer,
-      local_addr=("0.0.0.0", UDP_PORT),
-    )
     yield
   finally:
     if transport is not None:
