@@ -4,12 +4,15 @@ import uvicorn
 from project.core.camera import Camera
 from project.constants import API_PORT
 from project.api.server import Server
+from project.storage.database import init_db 
 
 def main():
   logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s %(levelname)s %(name)s: %(message)s",
   )
+
+  init_db()
 
   camera = Camera(0)
   app = Server(camera=camera)

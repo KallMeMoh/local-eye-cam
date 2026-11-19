@@ -29,3 +29,8 @@ def get_session() -> Generator[Session, None, None]:
     yield session
   finally:
     session.close()
+
+def init_db():
+  # we'll have to import each class built on Base 
+  # here b4 create_all is called I think
+  Base.metadata.create_all(engine)
