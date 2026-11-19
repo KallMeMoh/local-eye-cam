@@ -4,7 +4,7 @@ import uvicorn
 from project.core.camera import Camera
 from project.constants import API_PORT
 from project.api.server import Server
-from project.storage.database import init_db 
+from project.storage.database import engine, init_db 
 
 def main():
   logging.basicConfig(
@@ -30,6 +30,7 @@ def main():
     )
   finally:
     camera.release()
+    engine.dispose()
 
 if __name__ == "__main__":
   main()
