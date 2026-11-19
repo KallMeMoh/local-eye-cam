@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+venv/
+.venv/
+.idea/
+.vscode/
+
+# runtime output
+recordings/
+security_events.txt*
+app_command.json
+app_command.json.tmp
+app_reply.json
+
+# model weights
+*.pt
+*_ncnn_model/

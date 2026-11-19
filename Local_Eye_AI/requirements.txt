@@ -1,0 +1,5 @@
+opencv-python
+numpy
+ultralytics
+# Raspberry Pi only (install via apt: sudo apt install python3-picamera2)
+# picamera2
