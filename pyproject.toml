@@ -7,7 +7,7 @@ requires-python = ">=3.14"
 dependencies = [
     "fastapi>=0.163.1",
     "opencv-python>=5.0.0.93",
-    "sqlalchemy>=2.1.8",
+    "ultralytics>=8.4.219",
     "uvicorn>=0.54.0",
 ]
 
