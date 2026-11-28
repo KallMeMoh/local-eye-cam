@@ -2,8 +2,9 @@ import logging
 import uvicorn
 
 from project.core.camera import Camera
-from project.constants import API_PORT
+from project.constants import API_PORT, FCM_KEY_PATH
 from project.api.server import Server
+from project.core.notifier import PushNotifier
 from project.storage.database import engine, init_db 
 
 def main():
@@ -14,8 +15,13 @@ def main():
 
   init_db()
 
-  camera = Camera(0)
-  app = Server(camera=camera)
+  push_notifier = PushNotifier(key_path=FCM_KEY_PATH)  # pyright: ignore[reportUnusedVariable] temporarily
+  # Camera depends on it but I think I will pass it the push 
+  # notifier after it's migrated from opencv to picamera2
+  camera = Camera(0) 
+  app = Server(camera=camera) 
+  # If the backend ever needs it we'll pass it just like 
+  # camera and attach it on app.state
 
   try:
     uvicorn.run(
