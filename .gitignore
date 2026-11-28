@@ -58,3 +58,6 @@ Thumbs.db
 *.pt
 *_ncnn_model/
 runs/
+
+# sqlite dbs
+*.sqlite
